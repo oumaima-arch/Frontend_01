@@ -221,98 +221,98 @@ function ThreeScene() {
       const geometry = child.geometry;
       if (geometry && geometry.isBufferGeometry) {
         const positionAttribute = geometry.getAttribute('position');
-  //       // const colors=[];
-  //
-  //       const vertexCount = positionAttribute.count;
-        const color = [
-          [255, 165, 0, 1],   // Orange
-          [0, 128, 0, 1],     // Dark Green
-          [128, 0, 128, 1],   // Purple
-          [255, 99, 71, 1],   // Tomato
-          [30, 144, 255, 1],  // Dodger Blue
-          [255, 0, 255, 1],   // Fuchsia
-          [70, 130, 180, 1],  // Steel Blue
-          [255, 192, 203, 1], // Pink
-          [255, 215, 0, 1],   // Gold
-          [169, 169, 169, 1], // Dark Gray
-          [255, 20, 147, 1],  // Deep Pink
-          [0, 255, 255, 1],   // Aqua
-          [255, 69, 0, 1],    // Orange Red
-          [128, 0, 0, 1],     // Maroon
-          [0, 250, 154, 1],   // Medium Spring Green
-        ];
-        // const color = {
-        //   0: [1, 0, 0],     // Red
-        //   1: [0, 1, 0],     // Green
-        //   2: [0, 0, 1],     // Blue
-        //   3: [1, 1, 0],     // Yellow
-        //   4: [1, 0, 1],     // Magenta
-        //   5: [0, 1, 1],     // Cyan
-        //   6: [1, 0.5, 0],   // Orange
-        //   7: [0.5, 0, 1],   // Purple
-        //   8: [0.5, 0.5, 0], // Brown
-        //   9: [0.8, 0.8, 0.8],   // Light Grey
-        //   10: [0.5, 1, 1],  // Light Cyan
-        //   11: [1, 0.5, 1],  // Light Magenta
-        //   12: [1, 1, 1],    // White
-        //   13: [0, 0, 0],    // Black
-        //   14: [0.9, 0.5, 0.2], // Light Orange
-        // };
+        const colors=[];
 
-        const vertexCount = geometry.getAttribute('position').count;
-        const colors = new Float32Array(vertexCount * 4);
-        for (let i = 0; i < vertexCount; i++) {
-          const label = labels[i];
-          const color_ = color[label] || [0, 0, 0, 1];
-          colors[i * 4] = color_[0] / 255;
-          colors[i * 4 + 1] = color_[1] / 255;
-          colors[i * 4 + 2] = color_[2] / 255;
-          colors[i * 4 + 3] = color_[3];
-        }
-        const colorAttribute = new BufferAttribute(colors, 4);
-        geometry.setAttribute('color', colorAttribute);
-        const material = child.material;
-        material.vertexColors = true; // Enable vertex colors
-        material.needsUpdate = true;
         // const vertexCount = positionAttribute.count;
-      //    // const colors = new Float32Array(vertexCount * 3);
-      //   const numbers = new Array(vertexCount);
-      // for (let i = 0; i < labels.length; i++) {
-      //
-      //
-      //   numbers.push(labels[i]);
-      //   numbers.push(labels[i]);
-      //   numbers.push(labels[i]);
-      // }
-      //   for (let i = 0; i < vertexCount; i++) {
-      //     numbers[i] = labels[i];
-      //     const number = labels[i];
-      //     const color1 = color[number] || [0, 0, 0];
-      //     colors[i * 3] = color1[0];
-      //     colors[i * 3 + 1] = color1[1];
-      //     colors[i * 3 + 2] = color1[2];
-      //   }
-      //
-      //
-      //   for (let i = 0; i < positionAttribute.count; i++) {
-      //     const label = numbers[i];
-      //     const color = new THREE.Color().setHex(Math.random() * 0xffffff);
-      //
-      //     colors.push(color.r, color.g, color.b);
-      //   }
-      //   const material = new THREE.MeshBasicMaterial({
-      //     color: 0xffffff,
-      //     side: THREE.DoubleSide, // Set the side property to DoubleSide
-      //     vertexColors: true
-      //   });
-      //   const colorAttribute = new THREE.BufferAttribute(new Float32Array(colors), 3);
-      //   geometry.setAttribute('color', colorAttribute);
-      //   child.material.vertexColors = true; // Enable vertex colors
-      //   child.material.needsUpdate = true;
-      //           // const colorAttribute = new BufferAttribute(colors, 3);
-      //   // geometry.setAttribute('color', colorAttribute);
-      //   // child.material.vertexColors = true; // Enable vertex colors
-      //   // child.material.needsUpdate = true;
+        // const color = [
+        //   [255, 165, 0, 1],   // Orange
+        //   [0, 128, 0, 1],     // Dark Green
+        //   [128, 0, 128, 1],   // Purple
+        //   [255, 99, 71, 1],   // Tomato
+        //   [30, 144, 255, 1],  // Dodger Blue
+        //   [255, 0, 255, 1],   // Fuchsia
+        //   [70, 130, 180, 1],  // Steel Blue
+        //   [255, 192, 203, 1], // Pink
+        //   [255, 215, 0, 1],   // Gold
+        //   [169, 169, 169, 1], // Dark Gray
+        //   [255, 20, 147, 1],  // Deep Pink
+        //   [0, 255, 255, 1],   // Aqua
+        //   [255, 69, 0, 1],    // Orange Red
+        //   [128, 0, 0, 1],     // Maroon
+        //   [0, 250, 154, 1],   // Medium Spring Green
+        // ];
+        const color = {
+          0: [1, 0, 0],     // Red
+          1: [0, 1, 0],     // Green
+          2: [0, 0, 1],     // Blue
+          3: [1, 1, 0],     // Yellow
+          4: [1, 0, 1],     // Magenta
+          5: [0, 1, 1],     // Cyan
+          6: [1, 0.5, 0],   // Orange
+          7: [0.5, 0, 1],   // Purple
+          8: [0.5, 0.5, 0], // Brown
+          9: [0.8, 0.8, 0.8],   // Light Grey
+          10: [0.5, 1, 1],  // Light Cyan
+          11: [1, 0.5, 1],  // Light Magenta
+          12: [1, 1, 1],    // White
+          13: [0, 0, 0],    // Black
+          14: [0.9, 0.5, 0.2], // Light Orange
+        };
+
+        // const vertexCount = geometry.getAttribute('position').count;
+        // const colors = new Float32Array(vertexCount * 4);
+        // for (let i = 0; i < vertexCount; i++) {
+        //   const label = labels[i];
+        //   const color_ = color[label] || [0, 0, 0, 1];
+        //   colors[i * 4] = color_[0] / 255;
+        //   colors[i * 4 + 1] = color_[1] / 255;
+        //   colors[i * 4 + 2] = color_[2] / 255;
+        //   colors[i * 4 + 3] = color_[3];
+        // }
+        // const colorAttribute = new BufferAttribute(colors, 4);
+        // geometry.setAttribute('color', colorAttribute);
+        // const material = child.material;
+        // material.vertexColors = true; // Enable vertex colors
+        // material.needsUpdate = true;
+        const vertexCount = positionAttribute.count;
+         // const colors = new Float32Array(vertexCount * 3);
+        const numbers = new Array(vertexCount);
+      for (let i = 0; i < labels.length; i++) {
+
+
+        numbers.push(labels[i]);
+        numbers.push(labels[i]);
+        numbers.push(labels[i]);
+      }
+        for (let i = 0; i < vertexCount; i++) {
+          numbers[i] = labels[i];
+          const number = labels[i];
+          const color1 = color[number] || [0, 0, 0];
+          colors[i * 3] = color1[0];
+          colors[i * 3 + 1] = color1[1];
+          colors[i * 3 + 2] = color1[2];
+        }
+
+
+        for (let i = 0; i < positionAttribute.count; i++) {
+          const label = numbers[i];
+          const color = new THREE.Color().setHex(Math.random() * 0xffffff);
+
+          colors.push(color.r, color.g, color.b);
+        }
+        const material = new THREE.MeshBasicMaterial({
+          color: 0xffffff,
+          side: THREE.DoubleSide, // Set the side property to DoubleSide
+          vertexColors: true
+        });
+        const colorAttribute = new THREE.BufferAttribute(new Float32Array(colors), 3);
+        geometry.setAttribute('color', colorAttribute);
+        child.material.vertexColors = true; // Enable vertex colors
+        child.material.needsUpdate = true;
+                // const colorAttribute = new BufferAttribute(colors, 3);
+        // geometry.setAttribute('color', colorAttribute);
+        // child.material.vertexColors = true; // Enable vertex colors
+        // child.material.needsUpdate = true;
         material.side = THREE.DoubleSide;
       }
     }
